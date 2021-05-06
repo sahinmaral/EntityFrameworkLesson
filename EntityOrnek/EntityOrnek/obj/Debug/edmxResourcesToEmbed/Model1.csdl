@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentExamsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="GradeId" />
+    </Key>
+    <Property Name="GradeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="LessonId" Type="Int32" />
+    <Property Name="Exam1" Type="Int16" />
+    <Property Name="Exam2" Type="Int16" />
+    <Property Name="Exam3" Type="Int16" />
+    <Property Name="AverageGrade" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="isPassed" Type="Boolean" />
+    <NavigationProperty Name="Lessons" Relationship="Self.FK_Grades_Lessons" FromRole="Grades" ToRole="Lessons" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Grades_Students" FromRole="Grades" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Lessons">
+    <Key>
+      <PropertyRef Name="LessonId" />
+    </Key>
+    <Property Name="LessonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LessonName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Grades" Relationship="Self.FK_Grades_Lessons" FromRole="Lessons" ToRole="Grades" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="StudentSurname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="StudentPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Grades" Relationship="Self.FK_Grades_Students" FromRole="Students" ToRole="Grades" />
+  </EntityType>
+  <Association Name="FK_Grades_Lessons">
+    <End Role="Lessons" Type="Self.Lessons" Multiplicity="0..1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessons">
+        <PropertyRef Name="LessonId" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="LessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grades_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentExamsDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Grades" EntityType="Self.Grades" />
+    <EntitySet Name="Lessons" EntityType="Self.Lessons" />
+    <EntitySet Name="Students" EntityType="Self.Students" />
+    <AssociationSet Name="FK_Grades_Lessons" Association="Self.FK_Grades_Lessons">
+      <End Role="Lessons" EntitySet="Lessons" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grades_Students" Association="Self.FK_Grades_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <FunctionImport Name="NotListesi" ReturnType="Collection(StudentExamsDbModel.NotListesi_Result)" />
+  </EntityContainer>
+  <ComplexType Name="NotListesi_Result">
+    <Property Type="Int32" Name="Not_Id" Nullable="false" />
+    <Property Type="String" Name="Öğrenci_Ad_Soyad" Nullable="true" MaxLength="41" />
+    <Property Type="String" Name="Ders_Adı" Nullable="true" MaxLength="40" />
+    <Property Type="Int16" Name="Sınav_1" Nullable="true" />
+    <Property Type="Int16" Name="Sınav_2" Nullable="true" />
+    <Property Type="Int16" Name="Sınav_3" Nullable="true" />
+    <Property Type="Decimal" Name="Ortalama" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Boolean" Name="Geçti_Mi" Nullable="true" />
+  </ComplexType>
+</Schema>
