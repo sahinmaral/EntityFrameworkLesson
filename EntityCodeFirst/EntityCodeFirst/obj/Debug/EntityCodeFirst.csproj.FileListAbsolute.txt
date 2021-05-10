@@ -1,0 +1,16 @@
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityCodeFirst.exe.config
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityCodeFirst.exe
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityCodeFirst.pdb
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityFramework.dll
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityFramework.xml
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.csprojAssemblyReference.cache
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.Form1.resources
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.Properties.Resources.resources
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.csproj.GenerateResource.cache
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.csproj.CoreCompileInputs.cache
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.csproj.CopyComplete
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.exe
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.pdb
+C:\Users\sahin\source\repos\EntityCodeFirst\EntityCodeFirst\obj\Debug\EntityCodeFirst.Migrations.m2.resources
